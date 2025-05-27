@@ -1,17 +1,16 @@
 import csv
+import math
 
-def læs_antal_fra_csv(filnavn):
-    with open(filnavn, newline='') as f:
+# Input/Output, IP & "Streaming med yield, for, next"
+def læs_salg_fra_csv(filnavn):
+    with open(filnavn) as f:
         reader = csv.DictReader(f)
         for row in reader:
-            yield int(row['antal'])  # <- HER bruger vi yield
+            antal = int(row['antal'])
+            enhedspris = float(row['enhedspris'])
+            beløb = math.ceil(antal * enhedspris)
+            yield antal, enhedspris, beløb
 
-def kumuler_salg(input_fil, output_fil):
-    total = sum(læs_antal_fra_csv(input_fil))  # <- Streamet kumulation
+for salg in læs_salg_fra_csv("salg.csv"):
+    print(salg)
 
-    with open(output_fil, 'w', newline='') as f:
-        writer = csv.writer(f)
-        writer.writerow(['Total antal solgte varer'])
-        writer.writerow([total])
-
-kumuler_salg('salg.csv', 'output.csv')
