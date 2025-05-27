@@ -1,6 +1,6 @@
 import polars as pl
 
-#gruppering, SR, Dictionary, Polars
+# Gruppering (ordbøger), SR, & Softwarebiblioteker med NumPy, Polars, og/eller Kafka
 
 # Eksempeldata
 df1 = pl.DataFrame([
