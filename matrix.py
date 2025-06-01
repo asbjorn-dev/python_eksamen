@@ -1,4 +1,4 @@
-﻿# Reduktion, SR & Imperativ
+﻿# Reduce, SR & Imperativ
 def matrix_sum_of(m):
     total_sum = 0
     i = 0

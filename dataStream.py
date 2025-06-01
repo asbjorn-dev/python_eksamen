@@ -1,7 +1,7 @@
 import csv
 import math
 
-# Input/Output, IP & "Streaming med yield, for, next"
+# Input/Output, SR & "Streaming med yield, for, next"
 def læs_salg_fra_csv(filnavn):
     with open(filnavn) as f:
         reader = csv.DictReader(f)
@@ -13,4 +13,3 @@ def læs_salg_fra_csv(filnavn):
 
 for salg in læs_salg_fra_csv("salg.csv"):
     print(salg)
-
