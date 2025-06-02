@@ -10,8 +10,6 @@ df1 = pl.DataFrame([
     ['dk-34929950', 'pja', 72_048_67]
 ], schema=["order_id", "agent_id", "sales_volume"])
 
-print(df1)
-
 def sales_volume_per_agent(df: pl.DataFrame) -> pl.DataFrame:
     # Gruppér efter agent_id og summer sales_volume
     result = df.group_by("agent_id").agg(

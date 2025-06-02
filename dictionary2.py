@@ -7,19 +7,20 @@ data = [
     ['dk-34929950', 'pja', 72_048_67]
 ]
 
-def sales_volume_dictionary(d):
+def sales_volume_per_agent_dict(data):
     dictionary = {}
-    for row in d:
+
+    for row in data:
         agent = row[1]
-        sales = row[2]
+        sale = row[2]
 
         if agent in dictionary:
-            dictionary[agent]['total_sales'] += sales
-            dictionary[agent]['num_sales'] += 1
+            total_sale, count = dictionary[agent]
+            dictionary[agent] = (total_sale + sale, count + 1)
         else:
-            dictionary[agent] = {'total_sales': sales, 'num_sales': 1}
+            dictionary[agent] = (sale, 1)
 
     return dictionary
 
-output = sales_volume_dictionary(data)
+output = sales_volume_per_agent_dict(data)
 print(output)
